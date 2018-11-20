@@ -1,0 +1,53 @@
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>{{title}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding fullscreen>
+    	<ion-item>
+    		<ion-input required type="text" placeholder="NAME" [(ngModel)]="name"></ion-input>
+    	</ion-item>
+    	<ion-item>
+		    <ion-label>MODEL</ion-label>
+		    <ion-select [(ngModel)]="selectModel" [selectedText]="selectModel" (ionChange)="onSelectChangeModel($event)" placeholder="Select One">
+		    	 <ion-select-option *ngFor="let model of models" [value]="model.name">{{model.name}}</ion-select-option>
+		    </ion-select>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>COLOR</ion-label>
+		    <ion-select [(ngModel)]="selectColor" [selectedText]="selectColor" (ionChange)="onSelectChangeColor($event)" placeholder="Select One">
+		    	 <ion-select-option *ngFor="let color of colors" [value]="color.name">{{color.name}}</ion-select-option>
+		    </ion-select>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label>RING</ion-label>
+		    <ion-select [(ngModel)]="selectRing" [selectedText]="selectRing" (ionChange)="onSelectChangeRing($event)" placeholder="Select One">
+		    	 <ion-select-option *ngFor="let ring of rings" [value]="ring.name">{{ring.name}}</ion-select-option>
+		    </ion-select>
+		  </ion-item>
+		  <ion-item>
+    		<ion-input required type="number" placeholder="PRICE" [(ngModel)]="price"></ion-input>
+    	</ion-item>
+
+    	<ion-grid>
+    		<ion-row>
+			<ion-col size="6" *ngIf="edit == false"> 
+				<ion-button shape="round" color="primary" (click)="sendForm()">OKAY</ion-button>
+			</ion-col>
+			<ion-col size="6" *ngIf="edit == true"> 
+				<ion-button shape="round" color="warning" (click)="presentAlertConfirm()">EDIT</ion-button>
+			</ion-col>
+
+			<ion-col size="6">
+				<ion-button shape="round" color="danger" (click)="closeModal()">CANCEL</ion-button>
+			</ion-col>
+		</ion-row>
+    	</ion-grid>
+    </ion-content>
+
+    <style>
+      ion-toolbar {
+        --background: white;
+      }
+    </style>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CATALOG BIKES
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+	  <ion-item *ngFor="let bike of arrBikes">
+	    <ion-label>
+	      <h2>Name: {{bike.nombre}}</h2>
+	      <h3>Model: {{bike.modelo}} | Color: {{bike.color}} | Ring: {{bike.rodado}}</h3>
+	      <p>Price: ${{bike.precio}}</p>
+	      <ion-grid>
+	      	<ion-row>
+	      		<ion-col>
+	      			<ion-button shape="round" color="warning" size="small" (click)="presentModal(bike)"><ion-icon name="create"></ion-icon></ion-button>
+	      		</ion-col>
+	      		<ion-col>
+	      			<ion-button shape="round" color="danger" size="small" size="small" (click)="presentAlertConfirm(bike)"><ion-icon name="remove"></ion-icon></ion-button>
+	      		</ion-col>
+	      </ion-row>
+	  	</ion-grid>
+	    </ion-label>
+	  </ion-item>
+	</ion-list>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="presentModal('')">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
