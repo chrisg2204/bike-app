@@ -17,7 +17,7 @@ const Config = {
      * @var SERVICE_BASE
      * @type {string}
      */
-    SERVICE_BASE: 'http://192.168.4.102:9020',
+    SERVICE_BASE: 'https://vast-escarpment-94757.herokuapp.com',
     /**
      * Url de servicios disponibles.
      * @var SERVICE_URL
