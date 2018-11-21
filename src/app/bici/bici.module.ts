@@ -22,7 +22,7 @@ export class BiciModule {
 	ReqOptions: RequestOptions;
 
 	// Props de la Modal.
-	id = 0;
+	_id = '';
 	nombre = '';
 	modelo = ''
 	color = ''
@@ -201,7 +201,7 @@ export class BiciModule {
 
   }
 
-  sendFormEdit(id: number) {
+  sendFormEdit(id: string) {
   	let self = this;
 
 		if (self.name != '' && self.price != '' && self.selectModel != '' && self.selectColor != '' && self.selectRing != '')  {
@@ -235,7 +235,7 @@ export class BiciModule {
           }, {
               text: 'Okay',
               handler: () => {
-              	self.sendFormEdit(self.id);
+              	self.sendFormEdit(self._id);
               }
           }]
       });

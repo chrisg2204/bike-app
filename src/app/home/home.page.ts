@@ -154,7 +154,7 @@ export class HomePage {
           }, {
               text: 'Okay',
               handler: () => {
-                  self.httpDeleteHandler(Config.SERVICE_URL.DELETEBIKES+'/'+bike.id);
+                  self.httpDeleteHandler(Config.SERVICE_URL.DELETEBIKES+'/'+bike._id);
 
                   self.presentLoading();
               }
